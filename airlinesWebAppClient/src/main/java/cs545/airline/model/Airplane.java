@@ -1,8 +1,10 @@
 package cs545.airline.model;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
+import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,10 +14,11 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@Named
 @XmlRootElement
 @Entity
 @Table(uniqueConstraints=@UniqueConstraint(columnNames={"serialnr"}))
-public class Airplane {
+public class Airplane implements Serializable{
 
 	@Id
 	@GeneratedValue

@@ -1,9 +1,12 @@
 package cs545.airline.model;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,9 +16,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@Named
+@ViewScoped
 @XmlRootElement
 @Entity
-public class Flight {
+public class Flight implements Serializable {
 	@Id
 	@GeneratedValue
 	private long id;
@@ -44,6 +49,9 @@ public class Flight {
 
 	/* Constructors */
 	public Flight() {
+		airline = new Airline();
+		origin = new Airport();
+		destination = new Airport();
 	}
 
 	public Flight(String flightnr, String departureDate, String departureTime,

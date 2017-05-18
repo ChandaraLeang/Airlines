@@ -1,6 +1,7 @@
 package edu.mum.cs545.restClient;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -31,7 +32,7 @@ public class FlightRestClient {
 		return allFlights;
 	}
 	
-	public List<Flight> findByAirline(String name){
+	public List<Flight> filterFlight(String departureDate, String departureTime, String arrivalDate, String arrivalTime, String name, String origin, String destination){
 		List<Flight> temp = new ArrayList<Flight>();
 		Client client = ClientBuilder.newClient();
 		
@@ -40,7 +41,13 @@ public class FlightRestClient {
 		.get(new GenericType<List<Flight>>(){});
 		
 		for(Flight f: flight2){
-			if(f.getAirline().getName().toLowerCase().contains(name)){
+			if((f.getDepartureDate().contains(departureDate)) &&
+			   (f.getDepartureTime().contains(departureTime)) &&
+			   (f.getArrivalDate().contains(arrivalDate)) &&
+			   (f.getArrivalTime().contains(arrivalTime)) &&
+			   (f.getAirline().getName().toLowerCase().contains(name)) && 
+			   (f.getOrigin().getName().toLowerCase().contains(origin)) &&
+			   (f.getDestination().getName().toLowerCase().contains(destination))){
 				temp.add(f);
 			}
 		}
