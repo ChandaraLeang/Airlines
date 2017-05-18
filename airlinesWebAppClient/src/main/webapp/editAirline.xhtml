@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"> 
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="jQuery.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.js"></h:outputScript>
+	<title>Edit this Airline</title>
+</h:head> 
+<h:body> 
+	<div class="container">
+		<div class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.xhtml">MY AIRLINES</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.xhtml">Home<span class="sr-only">(current)</span></a></li>
+					<li><a href="airlineList.xhtml">Airline<span class="sr-only">(current)</span></a></li>
+					<li><a href="airplaneList.xhtml">Airplane<span class="sr-only">(current)</span></a></li>
+					<li><a href="airportList.xhtml">Airport<span class="sr-only">(current)</span></a></li>
+					<li><a href="flightList.xhtml">Flight<span class="sr-only">(current)</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Edit this Airline</h2>
+				<h:form styleClass="form-horizontal">
+					<div class="form-group">
+						<h:outputLabel value="Airline Name" styleClass="control-label col-sm-2"/>
+						<div class="col-sm-10">
+							<h:inputText value="#{airline.name}" styleClass="form-control"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<h:commandButton action="#{airlineRestClient.update(airline.id, airline.name)}" value="Update" styleClass="btn btn-default"/>
+						</div>
+					</div>
+				</h:form>
+			</div>
+		</div>
+	</div>
+</h:body> 
+</html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"> 
+
+<h:head>
+	<title>Airline List</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="jQuery.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.js"></h:outputScript>
+</h:head>
+
+<h:body> 
+	<div class="container">
+		<div class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.xhtml">MY AIRLINES</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.xhtml">Home<span class="sr-only">(current)</span></a></li>
+					<li><a href="airlineList.xhtml">Airline<span class="sr-only">(current)</span></a></li>
+					<li><a href="airplaneList.xhtml">Airplane<span class="sr-only">(current)</span></a></li>
+					<li><a href="airportList.xhtml">Airport<span class="sr-only">(current)</span></a></li>
+					<li><a href="flightList.xhtml">Flight<span class="sr-only">(current)</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Airline List</h2>
+			
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Airline ID</th>
+							<th>Airline Name</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<ui:repeat var="airlines" value="#{airlineRestClient.findAll()}">
+							<tr>
+								<td>#{airlines.id}</td>
+								<td>#{airlines.name}</td>
+								<td>
+									<h:form>
+										<h:commandLink action="editAirline.xhtml" value="Edit" styleClass="btn btn-default" >
+										<f:setPropertyActionListener value="#{airlines.id}" target="#{airline.id}"></f:setPropertyActionListener>
+										<f:setPropertyActionListener value="#{airlines.name}" target="#{airlines.name}"></f:setPropertyActionListener>
+											<i class="glyphicon glyphicon-edit"></i>
+										</h:commandLink>
+									</h:form>
+								</td>
+								<td>
+									<h:form>
+										<h:commandLink value="Delete" action="#{airlineRestClient.delete(airlines.id)}" styleClass="btn btn-default">
+											<i class="glyphicon glyphicon-trash"></i>
+										</h:commandLink>
+									</h:form>
+								</td>
+							</tr>
+						</ui:repeat>
+					</tbody>
+				</table>
+				
+				<h:button outcome="createAirline" value="Create new airline" styleClass="btn btn-default"/>
+				<h:button outcome="index" value="Home" styleClass="btn btn-default"/>
+			</div>
+		</div>
+	</div>
+</h:body> 
+</html>

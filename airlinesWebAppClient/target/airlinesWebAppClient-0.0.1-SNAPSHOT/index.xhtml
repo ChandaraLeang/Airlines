@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="jQuery.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap.js"></h:outputScript>
+	<title>My Airlines</title>
+</h:head> 
+<h:body> 
+	<div class="container">
+		<div class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.xhtml">MY AIRLINES</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.xhtml">Home<span class="sr-only">(current)</span></a></li>
+					<li><a href="airlineList.xhtml">Airline<span class="sr-only">(current)</span></a></li>
+					<li><a href="airplaneList.xhtml">Airplane<span class="sr-only">(current)</span></a></li>
+					<li><a href="airportList.xhtml">Airport<span class="sr-only">(current)</span></a></li>
+					<li><a href="flightList.xhtml">Flight<span class="sr-only">(current)</span></a></li>
+				</ul>
+			</div>
+		</div>
+	<h:form>
+		<h:panelGrid columns="1">
+			<h2>Welcome to my Airlines!</h2>
+			
+			<table class="table">
+				<tr>
+					<td>
+						<a href="airlineList.xhtml"><img class="img-responsive" src="resources/img/airline_icon.jpeg" alt="Airline" title="Airline" width="100" height="100" /></a>
+					</td>
+					<td>
+						<a href="airplaneList.xhtml"><img class="img-responsive" src="resources/img/airplane_icon.jpg" alt="Airplane" title="Airplane" width="100" height="100" /></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="airportList.xhtml"><img class="img-responsive" src="resources/img/airport_icon.png" alt="Airport" title="Airport" width="100" height="100" /></a>
+					</td>
+					<td>
+						<a href="flightList.xhtml"><img class="img-responsive" src="resources/img/flight_icon.png" alt="flight" title="Flight" width="100" height="100" /></a>
+					</td>
+				</tr>
+			</table>
+		</h:panelGrid>
+	</h:form>
+	</div>
+</h:body>
+</html>
