@@ -42,15 +42,46 @@
 		<div class="row">
 		
 			<div class="col-xs-12">
-				<h2>Filter by Airline ID</h2>
+				<h2>Filter Data</h2>
 				<h:form styleClass="form-horizontal">
 					<div class="form-group">
-						<h:outputLabel value="Airline ID" styleClass="control-label col-sm-2"/>
+						<h:outputLabel value="Departure Date" styleClass="control-label col-sm-2"/>
 						<div class="col-sm-10">
-							<h:inputText value="#{flightRestCLient.flight.getAirline.getName}" styleClass="form-control"/>
+							<h:inputText value="#{flightFilter.departureDate}" styleClass="form-control"/>
 						</div>
+						
+						<h:outputLabel value="Departure Time" styleClass="control-label col-sm-2"/>
+						<div class="col-sm-10">
+							<h:inputText value="#{flightFilter.departureTime}" styleClass="form-control"/>
+						</div>
+						
+						<h:outputLabel value="Arrival Date" styleClass="control-label col-sm-2"/>
+						<div class="col-sm-10">
+							<h:inputText value="#{flightFilter.arrivalDate}" styleClass="form-control"/>
+						</div>
+						
+						<h:outputLabel value="Arrival Time" styleClass="control-label col-sm-2"/>
+						<div class="col-sm-10">
+							<h:inputText value="#{flightFilter.arrivalTime}" styleClass="form-control"/>
+						</div>
+					
+						<h:outputLabel value="Airline Name" styleClass="control-label col-sm-2"/>
+						<div class="col-sm-10">
+							<h:inputText value="#{flightFilter.airlineName}" styleClass="form-control"/>
+						</div>
+						
+						<h:outputLabel value="Origin Airport" styleClass="control-label col-sm-2"/>
+						<div class="col-sm-10">
+							<h:inputText value="#{flightFilter.originAirport}" styleClass="form-control"/>
+						</div>
+						
+						<h:outputLabel value="Destination Airport" styleClass="control-label col-sm-2"/>
+						<div class="col-sm-10">
+							<h:inputText value="#{flightFilter.destinationAirport}" styleClass="form-control"/>
+						</div>
+						
 						<div class="col-sm-offset-2 col-sm-10">
-							<h:commandButton action="#{flightRestClient.findByAirline(flightRestClient.flight.getAirline.getName)}" value="Search" styleClass="btn btn-default"/>
+							<h:commandButton value="Search" styleClass="btn btn-default"/>
 						</div>
 					</div>
 				</h:form>
@@ -77,7 +108,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<ui:repeat var="flights" value="#{flightRestClient.findAll()}">
+						<ui:repeat var="flights" value="#{flightRestClient.filterFlight(flightFilter.departureDate, flightFilter.departureTime, flightFilter.arrivalDate, flightFilter.arrivalTime, flightFilter.airlineName, flightFilter.originAirport, flightFilter.destinationAirport)}">
 							<tr>
 								<td>#{flights.flightnr}</td>
 								<td>#{flights.airline.name}</td>
@@ -101,4 +132,3 @@
 	</div>
 </h:body> 
 </html>
-<!-- Add filters by date-time, airline, departure, and destination -->

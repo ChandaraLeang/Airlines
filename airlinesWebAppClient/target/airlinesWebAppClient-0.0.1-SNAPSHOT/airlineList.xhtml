@@ -60,6 +60,8 @@
 								<td>
 									<h:form>
 										<h:commandLink action="editAirline.xhtml" value="Edit" styleClass="btn btn-default" >
+										<f:setPropertyActionListener value="#{airlines.id}" target="#{airline.id}"></f:setPropertyActionListener>
+										<f:setPropertyActionListener value="#{airlines.name}" target="#{airlines.name}"></f:setPropertyActionListener>
 											<i class="glyphicon glyphicon-edit"></i>
 										</h:commandLink>
 									</h:form>
