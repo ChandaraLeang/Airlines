@@ -22,10 +22,4 @@ public class FlightRest {
 	public List<Flight> findAll(){
 		return flightService.findAll();
 	}
-	
-//	@GET
-//	@Produces(MediaType.APPLICATION_XML)
-//	public List<Flight> findByAirline(Airline airline){
-//		return flightService.findByAirline(airline);
-//	}
 }

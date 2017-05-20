@@ -52,11 +52,4 @@ public class AirlineRest {
 		airline.setId(id);
 		airlineService.delete(airline);
 	}
-	
-//	@Path("/list")
-//	@GET
-//	@Produces(MediaType.APPLICATION_XML)
-//	public Airline findByName(String name){
-//		return airlineService.findByName(name);
-//	}
 }
